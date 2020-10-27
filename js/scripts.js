@@ -1,26 +1,31 @@
+function example (x){
+  alert(x); 
+}
 $(document).ready(function(){
   $("#form").submit(function(event){
     event.preventDefault();
-    let warningSign = [];
+    let warningSigns = [];
     let symptoms= [];
     let copingMethods = [];
     let i = 0; 
-    $("input:checkbox[name=warningSigns]:checked").each(function(){
-      warningSign[i] = $(this).val();
-      alert(warningSign);
-      i++;
+    $("input:checkbox[name=warningSigns]:checked").each(function() {
+      warningSigns.push($(this).val());
     });
-    i = 0;
-    $("input:checkbox[name=symptoms]:checked").each(function(){
+    $("input:checkbox[name=symptoms]:checked").each(function() {
       symptoms[i] = $(this).val();
-      alert(symptoms);
       i++;
     })
     i = 0;
-    $("input:checkbox[name=copingMethods]:checked").each(function(){
+    $("input:checkbox[name=copingMethods]:checked").each(function() {
       copingMethods[i] = $(this).val();
-      alert(copingMethods);
       i++;
     })
+    // example(warningSign);
+    if (symptoms.length > 1 && warningSigns.length > 2) {
+      alert("holy cow, you need to chill out dude!");
+    }
+    else if (copingMethods.length > 1) {
+      alert("stay cool my dude");
+    }
   });
 });
